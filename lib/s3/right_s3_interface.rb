@@ -159,7 +159,7 @@ module RightAws
         # remove unset(==optional) and symbolyc keys
       headers.each{ |key, value| headers.delete(key) if (value.nil? || key.is_a?(Symbol)) }
         #
-      headers['content-type'] ||= ''
+      headers['content-type']   = 'binary/octet-stream' unless headers['content-type']
       headers['date']           = Time.now.httpdate
         # create request
       request      = "Net::HTTP::#{method.capitalize}".constantize.new(path)
