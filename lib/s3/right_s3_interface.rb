@@ -120,6 +120,7 @@ module RightAws
 
     # http://docs.amazonwebservices.com/AmazonS3/2006-03-01/index.html?BucketRestrictions.html
     def is_dns_bucket?(bucket_name)
+      return nil
       bucket_name = bucket_name.to_s
       return nil unless (3..63) === bucket_name.size
       bucket_name.split('.').each do |component|
